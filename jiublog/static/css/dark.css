@@ -1,0 +1,344 @@
+.copyBtn{
+    position:absolute;
+    top:3px;
+    right:2px;
+    z-index:999;
+    padding:2px;
+    font-size:13px;
+    background-color: #141313 !important;
+    cursor: pointer;
+    color: #5ca5f1
+}
+
+.introduce-bg{
+    background-color: #5b5e5c42;
+    border-radius: 5px;
+    padding: 10px;
+    line-height: 30px;
+}
+
+.top-post-div:after {
+    position: absolute;
+    top: 0.3rem;
+    right: -0.5rem;
+    z-index: 1;
+    color: white;
+    font-size: 14px;
+    font-weight: bold;
+    line-height: 0;
+    height: 0;
+    border: 0.9375rem solid #626967;
+    border-left-color: transparent;
+    content: "置顶";
+    box-shadow: 0 0.3125rem 0.3125rem -0.3125rem #000;
+}
+
+.top-post-div:before{
+    content: "";
+    position: absolute;
+    top: 2.1875rem;
+    left: 100%;
+    border: 0.25rem solid #626967;
+    border-right-color: transparent;
+    border-bottom-color: transparent;
+}
+
+.tip { /* from github.com */
+    position: relative;
+    padding: 40px;
+    text-align: center;
+    background-color: #373839;
+    border-radius: 3px;
+    box-shadow: inset 0 0 10px rgba(27, 31, 35, 0.05);
+}
+
+.blog-content-brief-div{
+    background-color: #303030;
+    border-radius: 5px;
+}
+
+.bg-nav, .bg-footer{
+    background-color: #303030!important;
+    color: white!important;
+}
+
+.nav-text{
+    color: white;
+}
+
+.nav-text:hover{
+    color: #aaaaaa;
+}
+
+.nav-active{
+    color: #aaaaaa;
+}
+
+.blog-content-div {
+    margin: 10px 0 10px 0;
+    padding: 10px 5px 10px 5px;
+    border-radius: 5px;
+    background-color: #303030;
+}
+
+.introduce-h1 {
+    font-size: 22px;
+    font-weight: 600;
+    margin: 10px 0 10px 0;
+    padding: 0 10px;
+    border-left: 5px solid #20c997;
+    background-color: #272727;
+    line-height: 2em;
+}
+
+@media screen and (min-width: 1367px){
+    .history-fixed-div {
+        position: fixed;
+        top: 8.5em;
+        user-select: none;
+        left: calc((100vw - 1000px)/2 - 330px);
+        margin: 5px;
+        padding: 10px;
+        border-radius: 5px;
+        background: #303030;
+        width: 15em;
+    }
+}
+@media screen and (max-width: 1660px) {
+    .history-fixed-div{
+        display: none;
+    }
+}
+
+/*自定义CKEditor 渲染样式*/
+.m-blockquote{
+    position: relative;
+    padding: 33px 5px 8px 5px;
+    background-color: #393939!important;
+    border-radius: 4px;
+    color: white;
+}
+
+.m-blockquote:before{
+    display: block;
+    color: white;
+    font-weight: bold;
+    content: "\26A0 提示";
+    height: 25px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: #272822;
+    padding: 0 5px;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+}
+
+.marker{
+    padding: .2em .4em;
+    margin: 0;
+    font-size: 85%;
+    background-color: #0b0f0b;
+    border-radius: 6px;
+}
+
+article>h1 {
+    font-size: 22px;
+    font-weight: 600;
+    margin: 10px 0 10px 0;
+    padding: 0 12px;
+    border-left: 5px solid #20c997;
+    background-color: #303030;
+    line-height: 2em;
+}
+
+article>h2 {
+    font-size: 20px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    padding: 5px 5px 5px 5px;
+    border-bottom: 1px solid #28a745;
+}
+
+article>h3 {
+    font-size: 18px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding: 5px 5px 5px 5px;
+    border-bottom: 1px solid #28a745;
+}
+
+blockquote p {
+    display: inline;
+}
+
+.login-hint {
+    background-color: #424242d6;
+    border-radius: 5px;
+}
+
+.m-block-text{
+    background-color: #a4a1a126!important;
+    border-radius: 3px;
+    border: 0 solid !important;
+}
+
+.m-toast-pop {
+    display: none;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    overflow: auto;
+    text-align: center;
+}
+
+.m-toast-inner {
+    position: absolute;
+    left:50%;
+    top:50%;
+    width: 100%;
+    transform:translate(-50%,-50%);
+    -webkit-transform:translate(-50%,-50%);
+    text-align: center;
+}
+
+.m-toast-inner-text{
+    display: inline-block;
+    margin: 0 22px;
+    padding: 19px 21px;
+    font-size: 16px;
+    color: #0a0a0a;
+    letter-spacing: 0;
+    line-height: 22px;
+    background: rgba(255,255,255,0.75);
+    border-radius: 10px;
+}
+
+.code-format-textarea{
+    border:0;
+    border-radius:5px;
+    background-color:rgba(241,241,241,.98);
+    width: 100%;
+    padding: 10px;
+    resize: none;
+    outline: none;
+    overflow-y: scroll;
+    height: 600px;
+    background-color:#343a40;
+    scrollbar-arrow-color:yellow;
+    scrollbar-base-color:lightsalmon;
+    color: #cccccc;
+}
+
+::-webkit-scrollbar {/*滚动条整体样式*/
+    width: 10px;
+    height: 1px;
+}
+
+::-webkit-scrollbar-track {/*滚动条里面轨道*/
+    -webkit-box-shadow: inset 0 0 5px rgba(0,0,0,0.2);
+    border-radius: 10px;
+    background: #3c3c3c;
+}
+
+::-webkit-scrollbar-thumb {/*滚动条里面小方块*/
+    border-radius: 10px;
+    -webkit-box-shadow: inset 0 0 5px rgba(0,0,0,0.2);
+    background: #343a40;
+}
+
+.a-link{
+    color: white;
+    text-decoration: none;
+}
+
+.a-link:hover{
+    color: rgba(126,126,126,0.85);
+}
+
+.li-fade{
+    color: #aaaaaa;
+}
+
+.li-fade:hover{
+    color: #cccccc;
+}
+
+.moment-div{
+    background: #2a2a2a;
+    padding: 5px;
+    border-radius: 5px;
+    margin-bottom: 5px;
+}
+
+/*浮动侧边栏样式*/
+.content-div{
+    position: fixed;
+    left: 0;
+    top: 10rem;
+    background-color: #2a2a2a;
+    width: 0;
+    z-index: 10000;
+}
+
+@media screen and (min-width: 1660px) {
+    .content-div{
+        display: none;
+    }
+}
+.btn-slider{
+    border-radius: 3px;
+    padding: 3px;
+    position: absolute;
+    text-decoration: none!important;
+    color: white;
+    background-color: #0ab789;
+}
+.btn-slider:hover{
+    color: white;
+}
+.content-tab{
+    border-bottom: 4px solid white;
+    flex-grow: 1;
+    margin-left: 5px;
+    cursor: pointer;
+}
+.content-tab-fade{
+    border-bottom: 0;
+    flex-grow: 1;
+    margin-left: 5px;
+    cursor: pointer;
+}
+.fade-btn{
+    float: right;
+    background-color: transparent;
+    border: 0;
+    outline: none;
+    cursor: pointer;
+    color: white;
+}
+
+.slider-content{
+    display: none;
+    color: white;
+    background-color: #373737;
+    width: 240px;
+    border-radius: 5px;
+}
+
+.tab-div{
+    display: flex;
+}
+
+.tab-div p{
+    margin-bottom: 5px;
+}
+
+.content-a{
+    display: block;
+    padding-left: 5px;
+    color: white;
+}

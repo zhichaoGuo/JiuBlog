@@ -9,7 +9,7 @@ class Config(object):
     SQLALCHEMY_TRACK_MODIFICATIONS = False
     SQLALCHEMY_ECHO = False
     DATABASE_USER='root'
-    DATABASE_PWD='HtekRPS2017'
+    DATABASE_PWD='8854218guo'
     # Photo Configure
     PHOTO_NEED_RESIZE = 1024 * 1024
 

@@ -9,7 +9,7 @@ from jiublog.manager.views import manager
 
 
 def create_app(config_name=None):
-    app = Flask('blogin')
+    app = Flask('jiublog')
     if config_name:
         app.config.from_object(config_dict[config_name.capitalize()])
     # app.jinja_env.filters['split'] = split_space  # 增加jinja2的过滤器函数
@@ -85,3 +85,6 @@ def error_execute(app):
     # @app.errorhandler(CSRFError)
     # def handle_csrf_error(e):
     #     return render_template('error/400.html', description=e.description), 500
+if __name__ == '__main__':
+    app = create_app('production')
+    app.run(port=5678)

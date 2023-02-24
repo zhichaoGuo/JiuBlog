@@ -2,8 +2,26 @@
 
 ```
 JiuBlog
-  | jiublog
-  |   | 
+  ├ jiublog
+  |   ├ blog
+  |   |   ├ __init__.py     
+  |   |   ├ urls.py         
+  |   |   └ views.py
+  |   ├ manager
+  |   |   ├ __init__.py
+  |   |   ├ urls.py
+  |   |   └ views.py
+  |   ├ __init__.py
+  |   ├ config.py
+  |   ├ extension.py
+  |   └ models.py
+  ├ logs
+  |   └ .gitkeep
+  ├ sqlite
+  |   └ .gitkeep
+  ├ dev_doc.md
+  ├ README.md
+  └ wsgi.py
 ```
 ## 数据库设计
 ### 用户表 user

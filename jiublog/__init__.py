@@ -1,3 +1,5 @@
+import os
+
 from flask import Flask, render_template
 
 from jiublog.blog.views import blog
@@ -13,14 +15,15 @@ def create_app(config_name=None):
     # app.jinja_env.filters['split'] = split_space  # 增加jinja2的过滤器函数
     register_extension(app)
     register_blueprint(app)
+    configure_database(app)
     error_execute(app)
     return app
 
 
 def register_extension(app):
     # migrate.init_app(app, db)
-    # db.init_app(app)
-    # db.app = app
+    db.init_app(app)
+    db.app = app
     bootstrap.init_app(app)
     # moment.init_app(app)
     # ckeditor.init_app(app)
@@ -38,6 +41,24 @@ def register_extension(app):
 def register_blueprint(app):
     app.register_blueprint(blog)
     app.register_blueprint(manager)
+
+
+def configure_database(app):
+    @app.before_first_request
+    def initialize_database():
+        try:
+            db.create_all()
+        except Exception as e:
+            print('> Error: DBMS Exception: ' + str(e))
+            # fallback to SQLite
+            basedir = os.path.abspath(os.path.dirname(__file__))
+            app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + os.path.join(basedir, 'sqlite', 'db.sqlite3')
+            print('> Fallback to SQLite ')
+            db.create_all()
+
+    @app.teardown_request
+    def shutdown_session(exception=None):
+        db.session.remove()
 
 
 def error_execute(app):

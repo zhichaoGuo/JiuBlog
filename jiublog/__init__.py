@@ -4,7 +4,7 @@ from flask import Flask, render_template
 
 from jiublog.blog import blog
 from jiublog.config import config_dict
-from jiublog.extension import db, bootstrap, login_manager
+from jiublog.extension import db, bootstrap, login_manager, avatar
 from jiublog.manager.views import manager
 
 
@@ -29,7 +29,7 @@ def register_extension(app: Flask):
     # ckeditor.init_app(app)
     login_manager.init_app(app)
     # share.init_app(app)
-    # avatar.init_app(app)
+    avatar.init_app(app)
     # mail.init_app(app)
     # mail.app = app
     # whooshee.init_app(app)

@@ -49,7 +49,7 @@ class User(db.Model):
 
     @staticmethod
     def is_exist(name):
-        if User.query.filter_by(username=name).fitst():
+        if User.query.filter_by(username=name).first():
             return True
         else:
             return False
@@ -98,9 +98,9 @@ class BlogType(db.Model):
     name = db.Column(db.String(200), nullable=False, unique=True, comment='blog type name')
 
 
-class FriendLink(db.Model):
-    __tablename__ = 'friend_link'
-
-
-class Photo(db.Model):
-    __tablename__ = 'photo'
+# class FriendLink(db.Model):
+#     __tablename__ = 'friend_link'
+#
+#
+# class Photo(db.Model):
+#     __tablename__ = 'photo'

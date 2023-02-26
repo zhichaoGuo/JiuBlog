@@ -2,7 +2,7 @@ import os
 
 from flask import Flask, render_template
 
-from jiublog.blog.views import blog
+from jiublog.blog import blog
 from jiublog.config import config_dict
 from jiublog.extension import db, bootstrap, login_manager
 from jiublog.manager.views import manager
@@ -20,7 +20,7 @@ def create_app(config_name=None):
     return app
 
 
-def register_extension(app):
+def register_extension(app: Flask):
     # migrate.init_app(app, db)
     db.init_app(app)
     db.app = app
@@ -85,6 +85,8 @@ def error_execute(app):
     # @app.errorhandler(CSRFError)
     # def handle_csrf_error(e):
     #     return render_template('error/400.html', description=e.description), 500
+
+
 if __name__ == '__main__':
     app = create_app('production')
     app.run(port=5678)

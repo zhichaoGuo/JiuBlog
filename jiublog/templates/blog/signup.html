@@ -1,0 +1,38 @@
+{% extends "base/base.html" %}
+{% import 'bootstrap/wtf.html' as wtf %}
+{% block title %}
+    用户注册
+{% endblock %}
+{% block content %}
+    <main>
+        <br>
+        <div class="container">
+            <div class="jumbotron">
+                <div class="row">
+                    <div class="col-md-8 d-md-block d-none">
+                        <img src="{{ url_for('static', filename='img/register.jpg') }}" class="rounded img-fluid">
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card mb-3 w-100 bg-light">
+                            <div class="card-header"><h4 class="text-muted"><strong>用户注册</strong></h4></div>
+                            <div class="card-body">
+                                <form method="post" action="{{ url_for('blog.signup') }}">
+                                    {{ form.csrf_token }}
+                                    {{ wtf.form_field(form.user_name) }}
+                                    {{ wtf.form_field(form.user_email) }}
+                                    {{ wtf.form_field(form.password) }}
+                                    {{ wtf.form_field(form.confirm_pwd) }}
+                                    {{ form.submit }}
+                                </form>
+                                <hr>
+                                <small>已有账号? <a style="text-decoration: none;" href="{{ url_for('blog.signin') }}">登录.</a>
+                                </small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </main>
+{% endblock %}

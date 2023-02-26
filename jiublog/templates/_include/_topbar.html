@@ -1,25 +1,3 @@
-<!DOCTYPE html>
-{% from "macro.html" import nav_item, dropmenu with context %}
-<!--suppress ALL -->
-<html lang="zh-hans">
-{% block head %}
-    <head>
-        <meta charset="UTF-8">
-        <title>{% block title %}{% endblock %} - Blogin</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="{{ url_for('static', filename = 'css/base.css') }}">
-        <link rel="stylesheet" href="{{ url_for('static', filename = 'css/ck.css') }}">
-        <link rel="stylesheet" href="{{ url_for('static', filename = 'css/style.css') }}">
-        <link rel="stylesheet" href="{{ url_for('static', filename = 'skeleton/jquery.skeleton.css') }}">
-        <link rel="stylesheet" href="{{ url_for('static', filename = 'bootstrap4/light/flatly.bootstrap.min.css') }}">
-        <link rel="stylesheet" href="{{ url_for('static', filename = 'font-awesome-4.7.0/css/font-awesome.css') }}">
-        <link rel="stylesheet" href="{{ url_for('static', filename = 'css/light.css') }}">
-        <script src="{{ url_for('static', filename='jquery/jquery-3.5.1.min.js') }}"></script>
-        <script src="{{ url_for('static', filename='bootstrap-4.5.3-dist/js/bootstrap.min.js') }}"></script>
-    </head>
-{% endblock %}
-
-{% block nav %}
 <nav style="flex: none" class="navbar navbar-expand-lg bg-nav justify-content-between">
         <a class="navbar-brand nav-text" href="/">
             <img src="{{ url_for('static', filename='img/logo.png') }}" alt="logo" width="104px" height="36px">
@@ -31,10 +9,10 @@
         <div class="navbar-collapse collapse" id="collapsibleNavbar">
             <ul class="navbar-nav mr-auto">
                 {{ nav_item("blog.home", '主页', 'fa fa-home') }}
-                {{ nav_item("blog.home", '博客', 'fa fa-pencil') }}
-                {{ nav_item("blog.home", '相册', 'fa fa-photo') }}
-                {{ nav_item("blog.home", '归档', 'fa fa-archive') }}
-                {{ nav_item("blog.home", '工具', 'fa fa-steam') }}
+                {{ nav_item("blog.blog", '博客', 'fa fa-pencil') }}
+                {{ nav_item("blog.photo", '相册', 'fa fa-photo') }}
+                {{ nav_item("blog.time", '归档', 'fa fa-archive') }}
+                {{ nav_item("blog.tool", '工具', 'fa fa-steam') }}
                 {{ dropmenu('其他', 'fa fa-subway',
                             [['/soul/', 'fa fa-file-code-o mr-2', 'DJT'],
                              ['/ts-poem/', 'fa fa-file-text-o mr-2', 'Poem'],
@@ -50,8 +28,8 @@
             </form>
             {% if not current_user.is_authenticated %}
                 <ul class="navbar-nav f-17">
-                    <li class="nav-item"><a class="nav-link nav-text" href="/auth/login/">Login</a></li>
-                    <li class="nav-item"><a class="nav-link nav-text" href="/auth/register/">Register</a></li>
+                    <li class="nav-item"><a class="nav-link nav-text" href="{{ url_for('blog.signin') }}">Login</a></li>
+                    <li class="nav-item"><a class="nav-link nav-text" href="{{ url_for('blog.signup') }}">Register</a></li>
                 </ul>
             {% else %}
                 <ul class="navbar-nav">
@@ -92,10 +70,3 @@
             {% endif %}
         </div>
     </nav>
-{% endblock %}
-{% block content %}
-{% endblock %}
-{% block footer %}
-{% include "_footer.html" %}
-{% endblock %}
-</html>

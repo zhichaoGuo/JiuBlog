@@ -1,0 +1,60 @@
+{% extends "base/base.html" %}
+{% import 'bootstrap/wtf.html' as wtf %}
+{% block head %}
+    {{ super() }}
+    <style>
+        .span-auth{
+            border-bottom: solid 2px #426aff;
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+        .a-third-party-icon{
+            margin-top: 8px;
+            margin-right: 8px;
+        }
+
+        .div-third-party{
+            border-top: solid 1px #cccccc; margin-bottom: 5px;
+        }
+    </style>
+{% endblock %}
+{% block title %}
+    用户登录
+{% endblock %}
+{% block content %}
+    <main>
+        <div class="container">
+            <br>
+            {% include "_flash.html" %}
+            <div class="jumbotron">
+                <div class="row">
+                    <div style="margin-bottom: 10px" class="col-md-8 d-md-block d-none">
+                        <img src="/static/img/login.jpg" class="rounded img-fluid">
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card mb-3 w-100 bg-light">
+                            <div class="card-header"><h4 class="text-muted"><strong>用户登录</strong></h4></div>
+                            <div class="card-body">
+                                <form action="{{ url_for('blog.signin') }}" method="post">
+                                    {{ form.csrf_token }}
+                                    {{ wtf.form_field(form.usr_email) }}
+                                    {{ wtf.form_field(form.password) }}
+                                    {{ wtf.form_field(form.remember_me) }}
+                                    {{ form.submit }}
+                                </form>
+                                <hr>
+                                <p class="small"><a style="text-decoration: none" href="{{ url_for('blog.signup') }}">注册</a></p>
+                                <p class="small"><a style="text-decoration: none" href="{{ url_for('blog.forget_pwd') }}">忘记密码</a></p>
+<!--                                <div class="div-third-party">-->
+<!--                                    <span class="span-auth text-muted"><b>第三方登录</b></span>-->
+<!--                                </div>-->
+<!--                                <a class="a-third-party-icon" title="github第三方登录" href="/login/github"><i class="fa fa-github fa-lg"></i></a>-->
+<!--                                <a class="a-third-party-icon" title="gitee第三方登录" href="/login/gitee"><i class="fa fa-git-square fa-lg"></i></a>-->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+{% endblock %}

@@ -26,9 +26,9 @@ JiuBlog
 ## 数据库设计
 ### 用户表 user
 
-|  id  |  account  |  email  |  password  |  group  |  signup_time  |  code  |  ban  |  login_time  |  log_off  |
-| ----  | ----  | ----  | ----  | ----  | ----  | ----  | ----  | ----  | ----  |
-| ----  | ----  | ----  | ----  | ----  | ----  | ----  | ----  | ----  | ----  |
+| id  | account | email | password | group | signup_time | code | register | ban | login_time | log_off |
+|-----|---------|-------|----------|-------|-------------|------|----------|-----|------------|---------|
+| -   | -       | -     | -        | -     | -           | -    | -        | -   | -          | -       |
 
 - id:编号
 - account:账号 唯一 字符确认
@@ -41,11 +41,20 @@ JiuBlog
 - login_time:登录时间
 - log_off：注销
 
+### 用户组表 group
+
+| id  | name | 
+|-----|------|
+| -   | -    |
+
+- id:编号
+- name:用户组名称
+
 ### 博文表 blog
 
-|  id |  title |  type_id |  img |  introduce |  content |  creat_time |  update_time |  read_times |  is_hide |  is_top  |
-| ----  | ----  | ----  | ----  | ----  | ----  | ----  | ----  | ----  | ----  | ----  |
-| ----  | ----  | ----  | ----  | ----  | ----  | ----  | ----  | ----  | ----  | ----  |
+| id  | title | type_id | img | introduce | content | create_time | update_time | read_times | is_hide | is_top |
+|-----|-------|---------|-----|-----------|---------|-------------|-------------|------------|---------|--------|
+| -   | -     | -       | -   | -         | -       | -           | -           | -          | -       | -      |
 
 - id:编号
 - title:标题
@@ -53,7 +62,7 @@ JiuBlog
 - img:主图位置名称
 - introduce:简介
 - content:正文
-- creat_time:创建时间
+- create_time:创建时间
 - update_time:更新时间
 - read_times:阅读次数
 - is_hide:是否隐藏
@@ -61,9 +70,9 @@ JiuBlog
 
 ### 草稿表 draft
 
-|  id |  title |  type_id |  img |  introduce |  content |  time  |
-| ----  | ----  | ----  | ----  | ----  | ----  | ----  |
-| ----  | ----  | ----  | ----  | ----  | ----  | ----  |
+| id  | title | type_id | img | introduce | content | time |
+|-----|-------|---------|-----|-----------|---------|------|
+| -   | -     | -       | -   | -         | -       | -    |
 
 - id:
 - title:
@@ -75,9 +84,9 @@ JiuBlog
 
 ### 博文类型表 blog_type
 
-|  id |  name |  counts |  introduce |  create_time  |
-|   ----  | ----  | ----  | ----  | ----  |
-|   ----  | ----  | ----  | ----  | ----  |
+| id  | name | counts | introduce | create_time |
+|-----|------|--------|-----------|-------------|
+| -   | -    | -      | -         | -           |
 
 - id：编号
 - name：类别名称
@@ -87,9 +96,9 @@ JiuBlog
 
 ### 友情链接表 friend_link 
 
-|  id |  title |  link |  desc  |
-|   ----  | ----  | ----  | ----  |
-|   ----  | ----  | ----  | ----  |
+| id  | title | link | desc |
+|-----|-------|------|------|
+| -   | -     | -    | -    |
 
 - id:编号
 - title:友链名称
@@ -98,9 +107,9 @@ JiuBlog
 
 ### 相册表 photo 
 
-|  id |  title |  introduce |  save_path |  create_time |  is_hide  |
-|   ----  | ----  | ----  |   ----  | ----  | ----  |
-|   ----  | ----  | ----  |   ----  | ----  | ----  |
+| id  | title | introduce | save_path | create_time | is_hide |
+|-----|-------|-----------|-----------|-------------|---------|
+| -   | -     | -         | -         | -           | -       |
 
 - id:编号
 - title:标题

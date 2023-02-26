@@ -14,9 +14,9 @@ class User(db.Model):
     email = db.Column(db.String(40), unique=True, nullable=False, comment='user register email')
     password = db.Column(db.String(128), nullable=False, comment='user password')
     avatar = db.Column(db.String(128), nullable=False, comment='user avatar')
-    group_id = db.Column(db.INTEGER, db.ForeignKey('group.id'), default=2)
+    group_id = db.Column(db.INTEGER, default=2)
     signup_time = db.Column(db.DateTime, default=datetime.now)
-    code = db.Column(db.INTEGER, nullable=False, comment='user avatar')
+    code = db.Column(db.INTEGER, nullable=False, comment='user avatar', default='0000')
     register = db.Column(db.BOOLEAN, default=False)
     login_time = db.Column(db.DateTime, default=datetime.now)
     ban = db.Column(db.BOOLEAN, default=False)
@@ -48,8 +48,15 @@ class User(db.Model):
         db.session.commit()
 
     @staticmethod
-    def is_exist(name):
+    def name_is_exist(name):
         if User.query.filter_by(username=name).first():
+            return True
+        else:
+            return False
+
+    @staticmethod
+    def email_is_exist(email):
+        if User.query.filter_by(email=email).first():
             return True
         else:
             return False

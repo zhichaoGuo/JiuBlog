@@ -45,13 +45,16 @@ class RegisterView(MethodView):
         return render_template('blog/signup.html', form=form)
 
     def post(self):
-        form = request.form
-        user_name = form.get('user_name')
-        pwd = form.get('confirm_pwd')
-        email = form.get('user_email')
-        if User.is_exist(user_name):
-            flash('用户名已存在')
-            return None
+        _form = request.form
+        user_name = _form.get('user_name')
+        pwd = _form.get('confirm_pwd')
+        email = _form.get('user_email')
+        if User.name_is_exist(user_name):
+            flash('用户名已存在', 'warning')
+            return render_template('blog/signup.html', form=RegisterForm())
+        if User.email_is_exist(user_name):
+            flash('邮箱已注册', 'warning')
+            return render_template('blog/signup.html', form=RegisterForm())
         user = User(username=user_name, email=email, password=pwd)
         db.session.add(user)
         db.session.commit()

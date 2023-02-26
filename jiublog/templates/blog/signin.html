@@ -25,7 +25,7 @@
     <main>
         <div class="container">
             <br>
-            {% include "_flash.html" %}
+            {% include "_include/_flash.html" %}
             <div class="jumbotron">
                 <div class="row">
                     <div style="margin-bottom: 10px" class="col-md-8 d-md-block d-none">
@@ -44,7 +44,7 @@
                                 </form>
                                 <hr>
                                 <p class="small"><a style="text-decoration: none" href="{{ url_for('blog.signup') }}">注册</a></p>
-                                <p class="small"><a style="text-decoration: none" href="{{ url_for('blog.forget_pwd') }}">忘记密码</a></p>
+                                <p class="small"><a style="text-decoration: none" href="{{ url_for('blog.forgot_pwd') }}">忘记密码</a></p>
 <!--                                <div class="div-third-party">-->
 <!--                                    <span class="span-auth text-muted"><b>第三方登录</b></span>-->
 <!--                                </div>-->

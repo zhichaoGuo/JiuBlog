@@ -5,7 +5,8 @@ from flask_bootstrap import Bootstrap
 from flask_login import LoginManager
 # from flask_migrate import Migrate
 # from flask_share import Share
-# from flask_avatars import Avatars
+from flask_avatars import Avatars
+
 # from flask_mail import Mail
 # from flask_whooshee import Whooshee
 # from flask_oauthlib.client import OAuth
@@ -21,7 +22,9 @@ bootstrap = Bootstrap()
 # ckeditor = CKEditor()
 login_manager = LoginManager()
 # share = Share()
-# avatar = Avatars()
+avatar = Avatars()
+
+
 # mail = Mail()
 # whooshee = Whooshee()
 # pool = redis.ConnectionPool(host='localhost', port=6379, decode_responses=True)

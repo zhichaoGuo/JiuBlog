@@ -9,10 +9,10 @@
         <div class="navbar-collapse collapse" id="collapsibleNavbar">
             <ul class="navbar-nav mr-auto">
                 {{ nav_item("blog.home", '主页', 'fa fa-home') }}
-                {{ nav_item("blog.blog", '博客', 'fa fa-pencil') }}
-                {{ nav_item("blog.photo", '相册', 'fa fa-photo') }}
-                {{ nav_item("blog.time", '归档', 'fa fa-archive') }}
-                {{ nav_item("blog.tool", '工具', 'fa fa-steam') }}
+                {{ nav_item("blog.blog", '博客管理', 'fa fa-pencil') }}
+                {{ nav_item("blog.photo", '相册管理', 'fa fa-photo') }}
+                {{ nav_item("blog.time", '归档管理', 'fa fa-archive') }}
+                {{ nav_item("blog.tool", '工具管理', 'fa fa-steam') }}
                 {{ dropmenu('其他', 'fa fa-subway',
                             [['/soul/', 'fa fa-file-code-o mr-2', 'DJT'],
                              ['/ts-poem/', 'fa fa-file-text-o mr-2', 'Poem'],
@@ -44,8 +44,8 @@
                             <a class="dropdown-item pl-3 " href="/accounts/profile">
                                 <i class="fa fa-fw fa-user mr-2"></i>个人资料</a>
                             {% if current_user.group_id == 1 %}
-                                <a class="dropdown-item pl-3" href="{{ url_for('manager.home') }}">
-                                    <i class="fa fa-fw fa-magnet mr-2"></i>后台管理</a>
+                                <a class="dropdown-item pl-3" href="{{ url_for('blog.home') }}">
+                                    <i class="fa fa-fw fa-magnet mr-2"></i>返回前台</a>
                             {% endif %}
                             {% if  request.cookies.get('blog_theme', 'light') == 'light' %}
                                 <a class="dropdown-item pl-3" href="{{ url_for('blog.home', theme_name='dark') }}">

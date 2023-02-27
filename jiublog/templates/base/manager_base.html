@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+{% from "_include/macro.html" import nav_item, dropmenu with context %}
+<!--suppress ALL -->
+<html lang="zh-hans">
+{% block head %}
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}{% endblock %} - Blogin</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="{{ url_for('static', filename = 'css/base.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename = 'css/ck.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename = 'css/style.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename = 'skeleton/jquery.skeleton.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename = 'bootstrap4/light/flatly.bootstrap.min.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename = 'font-awesome-4.7.0/css/font-awesome.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename = 'css/light.css') }}">
+        <script src="{{ url_for('static', filename='jquery/jquery-3.5.1.min.js') }}"></script>
+        <script src="{{ url_for('static', filename='bootstrap-4.5.3-dist/js/bootstrap.min.js') }}"></script>
+    </head>
+{% endblock %}
+
+{% include "_include/_manager_topbar.html" %}
+
+{% block content %}
+{% endblock %}
+
+{% include "_include/_footer.html" %}
+</html>

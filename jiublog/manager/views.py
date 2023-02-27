@@ -1,6 +1,8 @@
 from flask import Blueprint, render_template
 from flask.views import MethodView
 
+from jiublog.forms import PostForm
+
 manager = Blueprint('manager', __name__)
 
 
@@ -22,7 +24,8 @@ class NewBlogView(MethodView):
     """
 
     def get(self):
-        pass
+        form = PostForm()
+        return render_template('manager/blog.html',form=form)
 
     def post(self):
         pass
@@ -34,7 +37,8 @@ class BlogsView(MethodView):
     """
 
     def get(self):
-        pass
+        form = PostForm()
+        return render_template('manager/blog.html',form=form)
 
     def post(self):
         pass

@@ -1,0 +1,30 @@
+{% extends "base/manager_base.html" %}
+{% import 'bootstrap/wtf.html' as wtf %}
+{% block head %}
+    {{super()}}
+    <style>
+        @media screen and (min-width: 1367px){
+            .draft-fixed-div {
+                position: fixed;
+                top: 8.5em;
+                user-select: none;
+                left: calc((100vw - 1000px)/2 - 400px);
+                margin: 5px;
+                padding: 10px;
+                border-radius: 5px;
+                background: rgb(239 239 239 / 0.3);
+                width: 20em;
+            }
+        }
+    </style>
+{% endblock %}
+{% block title %}创建博客{% endblock %}
+{%block content%}
+<body>
+    <div class="container">
+        {{ form.body }}<br>
+    </div>
+    {{ ckeditor.load() }}
+    {{ ckeditor.config(name='body') }}
+</body>
+{% endblock %}

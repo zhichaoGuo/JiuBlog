@@ -9,10 +9,15 @@
         <div class="navbar-collapse collapse" id="collapsibleNavbar">
             <ul class="navbar-nav mr-auto">
                 {{ nav_item("blog.home", '主页', 'fa fa-home') }}
-                {{ nav_item("blog.blog", '博客管理', 'fa fa-pencil') }}
-                {{ nav_item("blog.photo", '相册管理', 'fa fa-photo') }}
-                {{ nav_item("blog.time", '归档管理', 'fa fa-archive') }}
-                {{ nav_item("blog.tool", '工具管理', 'fa fa-steam') }}
+                {{ dropmenu('博客管理', 'fa fa-pencil',
+                            [['/m/blog_new', 'fa fa-file-code-o mr-2', '新增博客'],
+                             ['/m/blogs', 'fa fa-file-text-o mr-2', '管理博客'],
+                             ['/m/blog_type', 'fa fa-file-text mr-2', '管理分类']]) }}
+                {{ dropmenu('相册管理', 'fa fa-photo',
+                            [['/m/photo_new', 'fa fa-file-code-o mr-2', '新增相片'],
+                             ['/m/photos', 'fa fa-file-text-o mr-2', '管理相片']]) }}
+                {{ nav_item('/m/time', '归档管理', 'fa fa-archive') }}
+                {{ nav_item('/m/tool', '工具管理', 'fa fa-steam') }}
                 {{ dropmenu('其他', 'fa fa-subway',
                             [['/soul/', 'fa fa-file-code-o mr-2', 'DJT'],
                              ['/ts-poem/', 'fa fa-file-text-o mr-2', 'Poem'],

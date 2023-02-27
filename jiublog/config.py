@@ -16,6 +16,7 @@ class Config(object):
     SQLALCHEMY_ECHO = False
     DATABASE_USER = 'root'
     DATABASE_PWD = '8854218guo'
+    DATABASE_NAME = 'blog'
     # Photo Configure
     PHOTO_NEED_RESIZE = 1024 * 1024
     # DEFAULT AVATAR CONFIGURE
@@ -23,13 +24,15 @@ class Config(object):
 
 
 class ProductionConfig(Config):
-    SQLALCHEMY_DATABASE_URI = 'mysql+pymysql://{}:{}@127.0.0.1/blog?charset=utf8mb4'.format(Config.DATABASE_USER,
-                                                                                            Config.DATABASE_PWD)
+    SQLALCHEMY_DATABASE_URI = 'mysql+pymysql://{}:{}@127.0.0.1/{}?charset=utf8mb4'.format(Config.DATABASE_USER,
+                                                                                          Config.DATABASE_PWD,
+                                                                                          Config.DATABASE_NAME)
 
 
 class DevelopmentConfig(Config):
-    SQLALCHEMY_DATABASE_URI = 'mysql+pymysql://{}:{}@127.0.0.1/blog?charset=utf8mb4'.format(Config.DATABASE_USER,
-                                                                                            Config.DATABASE_PWD)
+    SQLALCHEMY_DATABASE_URI = 'mysql+pymysql://{}:{}@127.0.0.1/{}?charset=utf8mb4'.format(Config.DATABASE_USER,
+                                                                                          Config.DATABASE_PWD,
+                                                                                          Config.DATABASE_NAME)
 
 
 config_dict = {

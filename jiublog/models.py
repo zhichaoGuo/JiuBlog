@@ -32,6 +32,13 @@ class User(db.Model):
     def check_password(self, pwd):
         return check_password_hash(self.password, pwd)
 
+    def is_active(self):
+        return True
+    def get_id(self):
+        return self.id
+    def is_authenticated(self):
+        return True
+
     def is_ban(self):
         return self.ban
 

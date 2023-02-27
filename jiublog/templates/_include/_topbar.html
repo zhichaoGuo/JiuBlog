@@ -54,16 +54,16 @@
                             {% endif %}
                             {% if  request.cookies.get('blog_theme', 'light') == 'light' %}
                                 <a class="dropdown-item pl-3"
-                                   href="{{ url_for('blog_bp.change_theme', theme_name='dark') }}"><i
+                                   href="{{ url_for('blog.home', theme_name='dark') }}"><i
                                         class="fa fa-fw fa-moon-o mr-2"></i>Dark</a>
                             {% else %}
                                 <a class="dropdown-item pl-3"
-                                   href="{{ url_for('blog_bp.change_theme', theme_name='light') }}"><i
+                                   href="{{ url_for('blog.home', theme_name='light') }}"><i
                                         class="fa fa-fw fa-sun-o mr-2"></i>Light</a>
                             {% endif %}
 
                             </a>
-                            <a class="dropdown-item pl-3" href="/auth/logout"><i class="fa fa-fw fa-sign-out mr-2"></i>Log Out</a>
+                            <a class="dropdown-item pl-3" href="{{ url_for('blog.logout') }}"><i class="fa fa-fw fa-sign-out mr-2"></i>Log Out</a>
                         </div>
                     </li>
                 </ul>

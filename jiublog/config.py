@@ -20,7 +20,7 @@ class Config(object):
     # Photo Configure
     PHOTO_NEED_RESIZE = 1024 * 1024
     # DEFAULT AVATAR CONFIGURE
-    AVATARS_SAVE_PATH = JiuBLOG_UPLOAD_PATH + '/avatars/'
+    AVATARS_SAVE_PATH = JiuBLOG_UPLOAD_PATH + '/accounts/avatars/'
 
 
 class ProductionConfig(Config):

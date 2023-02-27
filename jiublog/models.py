@@ -17,10 +17,10 @@ class User(db.Model):
     group_id = db.Column(db.INTEGER, default=2)
     signup_time = db.Column(db.DateTime, default=datetime.now)
     code = db.Column(db.INTEGER, nullable=False, comment='user avatar', default='0000')
-    register = db.Column(db.BOOLEAN, default=False)
+    is_authenticated = db.Column(db.BOOLEAN, default=True)
     login_time = db.Column(db.DateTime, default=datetime.now)
     ban = db.Column(db.BOOLEAN, default=False)
-    log_off = db.Column(db.BOOLEAN, default=False)
+    is_active = db.Column(db.BOOLEAN, default=True)
 
     def __init__(self, **kwargs):
         super(User, self).__init__(**kwargs)
@@ -32,21 +32,17 @@ class User(db.Model):
     def check_password(self, pwd):
         return check_password_hash(self.password, pwd)
 
-    def is_active(self):
-        return True
     def get_id(self):
         return self.id
-    def is_authenticated(self):
-        return True
 
     def is_ban(self):
         return self.ban
 
     def is_log_off(self):
-        return self.log_off
+        return not self.is_active
 
     def is_register(self):
-        return self.register
+        return self.is_authenticated
 
     def generate_avatar(self):
         icon = Identicon()
@@ -80,7 +76,7 @@ def init_global(*args, **kwargs):
     group = {1: "admin",
              2: "user"}
     for g in group:
-        new_group = Group(id=g, value=group[g])
+        new_group = Group(id=g, name=group[g])
         db.session.add(new_group)
     db.session.commit()
 

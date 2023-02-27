@@ -1,8 +1,9 @@
-from flask import Blueprint, render_template, flash, redirect, url_for, request
+from flask import Blueprint, render_template, flash, redirect, url_for, request, send_from_directory
 from flask.views import MethodView
 from flask_login import logout_user, current_user, login_user
 from sqlalchemy import or_
 
+from jiublog.config import basedir
 from jiublog.extension import db
 from jiublog.forms import LoginForm, RegisterForm
 from jiublog.models import User
@@ -54,10 +55,6 @@ class LoginView(MethodView):
         else:
             flash('用户名或密码错误!', 'danger')
             return redirect(url_for('blog.signin'))
-
-
-
-
 
 
 class RegisterView(MethodView):
@@ -112,6 +109,19 @@ class LogoutView(MethodView):
         logout_user()
         flash('退出成功!', 'success')
         return redirect(url_for('blog.home'))
+
+
+class AccountsView(MethodView):
+    """
+    账户视图
+    """
+
+    def get(self, method, file_name):
+        if method == 'avatar':
+            path = basedir + '/uploads/accounts/avatars/'
+            return send_from_directory(path, file_name)
+        else:
+            return render_template('error/400.html', description='访问参数有误！'), 400
 
 
 class BlogView(MethodView):

@@ -16,12 +16,15 @@
         <link rel="stylesheet" href="{{ url_for('static', filename = 'css/light.css') }}">
         <script src="{{ url_for('static', filename='jquery/jquery-3.5.1.min.js') }}"></script>
         <script src="{{ url_for('static', filename='bootstrap-4.5.3-dist/js/bootstrap.min.js') }}"></script>
+
     </head>
 {% endblock %}
 
 {% block nav %}
 {% include "_include/_topbar.html" %}
 {% endblock %}
+<script src="{{ url_for('static', filename='canvas-nest.min.js') }}"></script>
+<canvas id="c_n9" width="1920" height="990" style="position: fixed; top: 0px; left: 0px; z-index: -1; opacity: 0.5;"></canvas>
 {% block content %}
 {% endblock %}
 {% block footer %}
